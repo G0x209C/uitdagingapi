@@ -58,7 +58,8 @@ module.exports = {
       //  sails_datastores__default__url=mysql://admin:myc00lpAssw2D@db.example.com:3306/my_prod_db
       //  ```
       //--------------------------------------------------------------------------
-
+      adapter: 'sails-mongo',
+      url:'mongodb://sails:123@cluster0.zmih1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
       /****************************************************************************
       *                                                                           *
       * More adapter-specific options                                             *
@@ -251,10 +252,10 @@ module.exports = {
     * > Be sure to use the right protocol!  ("http://" vs. "https://")         *
     *                                                                          *
     ***************************************************************************/
-    // onlyAllowOrigins: [
-    //   'https://example.com',
-    //   'https://staging.example.com',
-    // ],
+    onlyAllowOrigins: [
+      'https://86.84.11.135',
+      'http://86.84.11.135',
+    ],
 
 
     /***************************************************************************
