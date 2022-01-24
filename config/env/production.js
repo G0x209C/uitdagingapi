@@ -59,7 +59,7 @@ module.exports = {
       //  ```
       //--------------------------------------------------------------------------
       adapter: 'sails-mongo',
-      url:'mongodb://sails:123@cluster0.zmih1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+      url:'mongodb+srv://sails:123@cluster0.zmih1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
       /****************************************************************************
       *                                                                           *
       * More adapter-specific options                                             *
