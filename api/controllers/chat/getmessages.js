@@ -19,10 +19,16 @@ module.exports = {
 
   fn: async function (inputs,exits,env) {
 
+    // check if connection is socket
+    if(!env.req.isSocket){
+      throw {badRequest:'connection is not a socket'};
+    }
 
+    if(env.req.cookies.secret){
 
-    // All done.
-    return;
+    }else{
+      throw {badRequest:'lacking identifier'};
+    }
 
   }
 
