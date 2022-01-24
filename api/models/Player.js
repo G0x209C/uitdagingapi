@@ -7,7 +7,6 @@ module.exports = {
     isHost: {type: 'boolean', defaultsTo: false},
     score: {type: 'number', defaultsTo: 0},
     room: {model: 'room'},
-    messages: {collection: 'message', via: 'utterer'}
   },
 
   newPlayer: async (name, roomId) => {

@@ -25,7 +25,13 @@ module.exports = {
     }
 
     if(env.req.cookies.secret){
-
+      // get player
+      let room_id = await Player.findOne({secret:env.req.cookies.secret}).populate('room')
+        .then((player)=>{
+          return player.room.id;
+        })
+        .catch(err=>{throw err;});
+      return env.res.ok(await Message.getMessages(room_id));
     }else{
       throw {badRequest:'lacking identifier'};
     }

@@ -16,14 +16,19 @@ module.exports.routes = {
      * |    API routes
      *  \==============
      */
+    'POST /api/checkuserexists': {action:'checkifuserexists'},
 
-    'POST /api/newplayer': {action:'newplayer'}
+    'POST /api/joinroom': {action:'socket/joinroom'},
+
+    'POST /api/newplayer': {action:'newplayer'},
 
     /**
      *  /==============
      * |    Chat routes
      *  \==============
      */
+    'POST /chat/getmessages': {action: 'chat/getmessages'},
+    'POST /chat/sendmessage': {action: 'chat/sendmessage'},
 
     /**
      *  /==============
