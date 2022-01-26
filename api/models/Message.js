@@ -19,16 +19,18 @@ module.exports = {
     return await Message.find({room:room}).catch(err=>{throw err;});
   },
 
-  createnewMesage: async (secret, msg) => {
+  createnewMesage: async (secret, msg, req) => {
     // find player.
     let player = await Player.findOne({secret:secret}).populate('room').catch(err=>{throw err});
     // return the created message:
-    return await Message.create({
+    let message = await Message.create({
       room: player.room.id,
       name: player.name,
       msg: msg
     }).fetch().catch(err => {
       throw err;
     });
+    // broadcast message to room.
+    sails.sockets.broadcast(player.room.roomId, 'newmsg', {name:message.name, msg:message.msg}, req);
   }
 };

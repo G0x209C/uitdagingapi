@@ -22,6 +22,7 @@ module.exports.routes = {
 
     'POST /api/newplayer': {action:'newplayer'},
 
+    'POST /api/getscoreboard': {action:'getplayersinfo'},
     /**
      *  /==============
      * |    Chat routes

@@ -59,6 +59,7 @@ module.exports.bootstrap = async function() {
     return result.join('');
   };
 
+  // create some random messages.
   await Message.createEach([
     {room:player1.room.id, name:player1.name, msg:createRandomString()},
     {room:player1.room.id, name:player1.name, msg:createRandomString()},
@@ -71,5 +72,4 @@ module.exports.bootstrap = async function() {
     {room:player1.room.id, name:player1.name, msg:createRandomString()},
     {room:player2.room.id, name:player2.name, msg:createRandomString()},
   ]);
-
 };
