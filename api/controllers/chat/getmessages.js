@@ -1,3 +1,4 @@
+const _ = require('lodash');
 module.exports = {
 
 
@@ -31,7 +32,7 @@ module.exports = {
           return player.room.id;
         })
         .catch(err=>{throw err;});
-      return env.res.ok(await Message.getMessages(room_id));
+      return env.res.ok(_.reverse(await Message.getMessages(room_id)));
     }else{
       throw {badRequest:'lacking identifier'};
     }
