@@ -29,14 +29,17 @@ module.exports.bootstrap = async function() {
   // ```
 
   // add the games to the database
-  await Game.createEach([
-    {name:'Wie ben ik?', link: '#'},
-    {name:'Wat is dit?', link: '#'},
-    {name:'Triviant', link: '#'},
-    {name:'Telepathie', link: '#'},
-    {name:'Maak de zin af', link: '#'},
-    {name:'Goed of fout?', link: '#'},
-  ]);
+  if(await Game.count()<6){
+    await Game.createEach([
+      {name:'Wie ben ik?', link: '#'},
+      {name:'Wat is dit?', link: '#'},
+      {name:'Triviant', link: '#'},
+      {name:'Telepathie', link: '#'},
+      {name:'Maak de zin af', link: '#'},
+      {name:'Goed of fout?', link: '#'},
+    ]);
+  }
+
 
 
   // creating some test players

@@ -28,6 +28,8 @@ module.exports = {
     let data = {
       playerscores: await Room.getScores(player.room.id),
       messages: await Message.getMessages(player.room.id),
+      games: await Game.getGames(),
+      isHost: player.isHost,
     };
 
     sails.sockets.broadcast(sails.sockets.getId(env.req), 'initdata', data);
