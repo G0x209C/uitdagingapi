@@ -11,12 +11,26 @@ module.exports = {
     return await Room.findOne({id: room_id}).populate('players').then((room) => {
       let result = [];
       for (let i = 0; i < room.players.length; i++) {
-        result[i] = {name: room.players[i].name, isHost: room.players[i].isHost, score: room.players[i].score};
+        result[i] = {
+          id: room.players[i].id,
+          name: room.players[i].name,
+          isHost: room.players[i].isHost,
+          score: room.players[i].score
+        };
       }
       return result;
     }).catch(err => {
       throw err;
     });
 
+  },
+  checkMemberCount: async (room_id) => {
+    return await Room.findOne({id: room_id}).populate('players')
+      .then(room => {
+        return room.players.length;
+      })
+      .catch(err => {
+        throw err;
+      });
   }
 };

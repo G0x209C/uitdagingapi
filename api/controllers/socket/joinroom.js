@@ -25,7 +25,7 @@ module.exports = {
     }
     sails.sockets.join(env.req,inputs.room,(err)=>{
       if(err){
-        return env.res.serverError(err);
+        sails.sockets.broadcast(sails.sockets.getId(env.req), 'roomerror', err);
       }
     });
   }

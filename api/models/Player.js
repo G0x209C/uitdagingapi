@@ -77,5 +77,9 @@ module.exports = {
 
     // broadcast an updated scoreboard to clients.
     sails.sockets.broadcast(player.room.roomId, 'scoreboardupdate', await Room.getScores(player.room.id));
+  },
+
+  logOut: async(secret)=>{
+    // TODO: flesh out this function: Archive the player and his messages.
   }
 };
