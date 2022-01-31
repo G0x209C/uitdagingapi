@@ -28,11 +28,12 @@ module.exports.security = {
   *                                                                          *
   ***************************************************************************/
 
-  // cors: {
-  //   allRoutes: false,
-  //   allowOrigins: '*',
-  //   allowCredentials: false,
-  // },
+  cors: {
+    allRoutes: true,
+    allowAnyOriginWithCredentialsUnsafe: true,
+    allowOrigins: '*',
+    allowCredentials: true,
+  },
 
 
   /****************************************************************************
@@ -48,7 +49,5 @@ module.exports.security = {
   * https://sailsjs.com/docs/concepts/security/csrf                           *
   *                                                                           *
   ****************************************************************************/
-
-  // csrf: false
-
+  csrf: false,
 };

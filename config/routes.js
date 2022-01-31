@@ -11,30 +11,39 @@
 module.exports.routes = {
 
 
-    /**
-     *  /==============
-     * |    API routes
-     *  \==============
-     */
-    'POST /api/checkuserexists': {action:'checkifuserexists'},
+  'GET /csrfToken': {action: 'security/grant-csrf-token'},
 
-    'POST /api/joinroom': {action:'socket/joinroom'},
+  /**
+   *  /==============
+   * |    Socket-specific routes
+   *  \==============
+   */
 
-    'POST /api/newplayer': {action:'newplayer'},
+  'POST /socket/joinroom': {action: 'socket/joinroom'},
+  'POST /socket/initdata': {action: 'socket/emit-init-data'},
 
-    'POST /api/getscoreboard': {action:'getplayersinfo'},
-    /**
-     *  /==============
-     * |    Chat routes
-     *  \==============
-     */
-    'POST /chat/getmessages': {action: 'chat/getmessages'},
-    'POST /chat/sendmessage': {action: 'chat/sendmessage'},
+  /**
+   *  /==============
+   * |    API routes
+   *  \==============
+   */
+  'POST /api/checkuserexists': {action: 'checkifuserexists'},
 
-    /**
-     *  /==============
-     * |    Game routes
-     *  \==============
-     */
+  'POST /api/newplayer': {action: 'newplayer'},
+
+  'POST /api/getscoreboard': {action: 'getscoreboard'},
+  /**
+   *  /==============
+   * |    Chat routes
+   *  \==============
+   */
+  'POST /chat/getmessages': {action: 'chat/getmessages'},
+  'POST /chat/sendmessage': {action: 'chat/sendmessage'},
+
+  /**
+   *  /==============
+   * |    Game routes
+   *  \==============
+   */
 
 };

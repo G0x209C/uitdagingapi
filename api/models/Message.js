@@ -15,8 +15,8 @@ module.exports = {
   },
 
   // return the messages
-  getMessages: async (room) => {
-    return await Message.find({room:room}).catch(err=>{throw err;});
+  getMessages: async (room_id) => {
+    return await Message.find({room:room_id}).catch(err=>{throw err;});
   },
 
   createnewMesage: async (secret, msg, req) => {
