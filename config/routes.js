@@ -33,6 +33,8 @@ module.exports.routes = {
 
   'POST /api/getscoreboard': {action: 'getscoreboard'},
   'POST /api/getgames': {action: 'get-games'},
+
+  'POST /api/setactivegame': {action: 'selectgame'},
   /**
    *  /==============
    * |    Chat routes

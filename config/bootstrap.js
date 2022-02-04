@@ -31,7 +31,7 @@ module.exports.bootstrap = async function() {
   // add the games to the database
   if(await Game.count()<6){
     await Game.createEach([
-      {name:'Wie ben ik?', link: '#'},
+      {name:'Wie ben ik?', link: '/wiebenik'},
       {name:'Wat is dit?', link: '#'},
       {name:'Triviant', link: '#'},
       {name:'Telepathie', link: '#'},
