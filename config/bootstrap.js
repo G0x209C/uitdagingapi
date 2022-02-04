@@ -32,26 +32,15 @@ module.exports.bootstrap = async function() {
   if(await Game.count()<6){
     await Game.createEach([
       {name:'Wie ben ik?', link: '/wiebenik'},
-      {name:'Wat is dit?', link: '#'},
-      {name:'Triviant', link: '#'},
-      {name:'Telepathie', link: '#'},
-      {name:'Maak de zin af', link: '#'},
-      {name:'Goed of fout?', link: '#'},
+      {name:'Wat is dit?', link: '/watisdit'},
+      {name:'Triviant', link: '/triviant'},
+      {name:'Telepathie', link: '/telepathie'},
+      {name:'Maak de zin af', link: '/maakdezinaf'},
+      {name:'Goed of fout?', link: '/goedfout'},
     ]);
   }
 
-
-
-  // creating some test players
-  let player1 = await Player.newPlayer("henk", undefined);
-  let player2 = await Player.newPlayer("bob", player1.room.roomId);
-  let player3 = await Player.newPlayer("Caro", player1.room.roomId);
-  let player4 = await Player.newPlayer("Toby", undefined);
-  let player5 = await Player.newPlayer("Merno", player4.room.roomId);
-  let player6 = await Player.newPlayer("Skof", player4.room.roomId);
-
-  // create some fake messages for each player;
-
+  // method to create some fake messages for each player;
   const createRandomString = () =>
   {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -62,17 +51,26 @@ module.exports.bootstrap = async function() {
     return result.join('');
   };
 
-  // create some random messages.
-  await Message.createEach([
-    {room:player1.room.id, name:player1.name, msg:createRandomString()},
-    {room:player1.room.id, name:player1.name, msg:createRandomString()},
-    {room:player2.room.id, name:player2.name, msg:createRandomString()},
-    {room:player3.room.id, name:player3.name, msg:createRandomString()},
-    {room:player4.room.id, name:player4.name, msg:createRandomString()},
-    {room:player5.room.id, name:player5.name, msg:createRandomString()},
-    {room:player4.room.id, name:player4.name, msg:createRandomString()},
-    {room:player6.room.id, name:player6.name, msg:createRandomString()},
-    {room:player1.room.id, name:player1.name, msg:createRandomString()},
-    {room:player2.room.id, name:player2.name, msg:createRandomString()},
-  ]);
+  // creating some test players
+  if(await Player.count < 6){
+    let player1 = await Player.newPlayer("henk", undefined);
+    let player2 = await Player.newPlayer("bob", player1.room.roomId);
+    let player3 = await Player.newPlayer("Caro", player1.room.roomId);
+    let player4 = await Player.newPlayer("Toby", undefined);
+    let player5 = await Player.newPlayer("Merno", player4.room.roomId);
+    let player6 = await Player.newPlayer("Skof", player4.room.roomId);
+    // create some random messages.
+    await Message.createEach([
+      {room:player1.room.id, name:player1.name, msg:createRandomString()},
+      {room:player1.room.id, name:player1.name, msg:createRandomString()},
+      {room:player2.room.id, name:player2.name, msg:createRandomString()},
+      {room:player3.room.id, name:player3.name, msg:createRandomString()},
+      {room:player4.room.id, name:player4.name, msg:createRandomString()},
+      {room:player5.room.id, name:player5.name, msg:createRandomString()},
+      {room:player4.room.id, name:player4.name, msg:createRandomString()},
+      {room:player6.room.id, name:player6.name, msg:createRandomString()},
+      {room:player1.room.id, name:player1.name, msg:createRandomString()},
+      {room:player2.room.id, name:player2.name, msg:createRandomString()},
+    ]);
+  }
 };

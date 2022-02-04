@@ -20,10 +20,12 @@ module.exports = {
       throw {badRequest: 'Connection is not a socket'};
     }
 
-    let player = await Player.findOne({secret: env.req.cookies.secret}).populate('room')
+    // get the player, using find->limit, because somehow WaterlineORM randomly complains about
+    // the whereclause {} in findOne not to be specific enough.
+    let player = (await Player.find({secret: env.req.cookies.secret}).limit(1).populate('room')
       .catch(err => {
         throw err;
-      });
+      }))[0];
     if (!player.isHost) {
       throw {badRequest: 'Player is not host'};
     }
