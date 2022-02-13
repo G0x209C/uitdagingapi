@@ -52,7 +52,7 @@ module.exports.bootstrap = async function() {
   };
 
   // creating some test players
-  if(await Player.count < 6){
+  if(await Player.count() < 6){
     let player1 = await Player.newPlayer("henk", undefined);
     let player2 = await Player.newPlayer("bob", player1.room.roomId);
     let player3 = await Player.newPlayer("Caro", player1.room.roomId);

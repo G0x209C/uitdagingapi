@@ -30,6 +30,7 @@ module.exports.routes = {
   'POST /api/checkuserexists': {action: 'checkifuserexists'},
 
   'POST /api/newplayer': {action: 'newplayer'},
+  'POST /api/logout': {action: 'logout'},
 
   'POST /api/getscoreboard': {action: 'getscoreboard'},
   'POST /api/getgames': {action: 'get-games'},

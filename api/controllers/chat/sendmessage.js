@@ -25,8 +25,8 @@ module.exports = {
 
     if(env.req.cookies.secret){
       // get player -> room.
-      let player = await Player.findOne({secret:env.req.cookies.secret}).populate('room')
-        .catch(err=>{throw err;});
+      // let player = await Player.findOne({secret:env.req.cookies.secret}).populate('room')
+      //   .catch(err=>{throw err;});
       // create the message
       await Message.createnewMesage(env.req.cookies.secret,inputs.msg, env.req);
 

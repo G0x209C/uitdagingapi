@@ -38,9 +38,9 @@ module.exports = {
     }
     // update scoreboard
     // call addScore without adding a score.
-    await Player.addScore(player.secret, 0);
     // this should broadcast the new player to all others
-    // All done.
+    await Player.addScore(player.secret, 0);
+
     return env.res.json(player);
 
   }

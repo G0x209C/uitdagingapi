@@ -26,6 +26,7 @@ module.exports = {
       .catch(err=>{throw err});
 
     let data = {
+      room: player.room.roomId,
       playerscores: await Room.getScores(player.room.id),
       messages: await Message.getMessages(player.room.id),
       games: await Game.getGames(),
